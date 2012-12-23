@@ -1,29 +1,15 @@
-<h1>Listing zombies</h1>
+<% provide( :title, '' ) %>
+<h1>SDS je blokirala ze</h1>
+<h2><%= @all_zombies_count %></h2>
+<h3>drzavljanov</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Message</th>
-    <th>Show</th>
-    <th>Secret</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p class="lead>">
+	Ali so blokirali tudi tebe? <input type="button" value="preveri" />
+</p>
 
 <% @zombies.each do |zombie| %>
-  <tr>
-    <td><%= zombie.name %></td>
-    <td><%= zombie.message %></td>
-    <td><%= zombie.show %></td>
-    <td><%= zombie.secret %></td>
-    <td><%= link_to 'Show', zombie %></td>
-    <td><%= link_to 'Edit', edit_zombie_path(zombie) %></td>
-    <td><%= link_to 'Destroy', zombie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<div>
+	<%= zombie.name %>
+	<br /><%= zombie.message %>
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Zombie', new_zombie_path %>

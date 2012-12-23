@@ -1,14 +1,8 @@
 class ZombiesController < ApplicationController
-  # GET /zombies
-  # GET /zombies.json
-  def index
-    @zombies = Zombie.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @zombies }
-    end
-  end
+	def index
+		@zombies = Zombie.where( :show => true )
+		@all_zombies_count = Zombie.count
+	end
 
   # GET /zombies/1
   # GET /zombies/1.json
