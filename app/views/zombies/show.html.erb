@@ -1,25 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if @show_form === true %>
+	<h1>@strankaSDS te je blokirala!</h1>
+	<p class="lead">
+		Povej nam zakaj mislis da so te blokirali:
+	</p>
+	<%= form_for(@zombie) do |f| %>
+		<%= f.text_field :message %>
 
-<p>
-  <b>Name:</b>
-  <%= @zombie.name %>
-</p>
-
-<p>
-  <b>Message:</b>
-  <%= @zombie.message %>
-</p>
-
-<p>
-  <b>Show:</b>
-  <%= @zombie.show %>
-</p>
-
-<p>
-  <b>Secret:</b>
-  <%= @zombie.secret %>
-</p>
+		<%= f.submit %>
+	<% end %>
+<% end %>
 
 
-<%= link_to 'Edit', edit_zombie_path(@zombie) %> |
-<%= link_to 'Back', zombies_path %>
+<hr />
+<h1>@StrankaSDS je blokirala @<%= @zombie.name %></h1>
+
+<% unless @zombie.message.empty? %>
+	@<%= @zombie.name %> meni da je razlog za blokiranje:<br /><br />
+	<%= @zombie.message %>
+<% end %>
+
+<p>BADGE</p>
+<p>share buttons</p>

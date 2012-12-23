@@ -7,6 +7,8 @@ Sdszombi::Application.routes.draw do
 	match '/auth/failure', :to => 'zombies#failure'
 
 	match '/preveri', :to => 'zombies#check_block_status', :as => 'check_block_status'
+	match '/nisi-blokiran', :to => 'zombies#not_blocked', :as => 'not_blocked'
+	match '/si-blokiran/:id', :to => 'zombies#show', :as => 'blocked'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

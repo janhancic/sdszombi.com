@@ -1,10 +1,10 @@
 <% provide( :title, '' ) %>
 <h1>SDS je blokirala ze</h1>
-<h2><%= @all_zombies_count %></h2>
+<h2><%= @zombies.length %></h2>
 <h3>drzavljanov</h3>
 
 <p class="lead>">
-	Ali so blokirali tudi tebe? <input type="button" value="preveri" />
+	Ali so blokirali tudi tebe? <a href="/auth/twitter">preveri</a>
 </p>
 
 <% @zombies.each do |zombie| %>
