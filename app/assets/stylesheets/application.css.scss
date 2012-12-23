@@ -11,3 +11,40 @@
  *= require_self
  *= require_tree .
  */
+
+@import 'bootstrap';
+
+body {
+	padding-top: 20px;
+}
+
+#row-1, #row-2, #row-3 {
+	text-align: center;
+}
+
+#row-1 {
+	font-size: 40px;
+	line-height: 55px;
+	background-color: blue;
+}
+
+#row-2 {
+	font-size: 50px;
+	line-height: 65px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+}
+
+#row-3 {
+	font-size: 40px;
+	line-height: 55px;
+	background-color: blue;
+}
+
+#check-container {
+	margin-top: 20px;
+	padding: 30px;
+	background-color: blue;
+	border-radius: 10px;
+}
