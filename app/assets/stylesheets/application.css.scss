@@ -89,3 +89,31 @@
 	margin: 20px auto;
 	max-width: 360px;
 }
+
+#bottom {
+	max-width: 768px;
+	margin: 0 auto;
+	div:first-child {
+		background-color: red;
+		width: 400px;
+	}
+	div:nth-child(2) {
+		float: right;
+		background-color: blue;
+		width: 300px;
+	}
+}
+
+@media (max-width: 714px) {
+	#bottom {
+		div:first-child {
+			float: none;
+			margin: 0 auto;
+		}
+		div:nth-child(2) {
+			float: none;
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+	}
+}
