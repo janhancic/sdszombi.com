@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  message: MyString
+  show: false
+  secret: MyString
+
+two:
+  name: MyString
+  message: MyString
+  show: false
+  secret: MyString
