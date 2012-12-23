@@ -4,6 +4,24 @@ class ZombiesController < ApplicationController
 		@all_zombies_count = Zombie.count
 	end
 
+	def twitter_callback
+		session[:twitter_token] = request.env['omniauth.auth']['credentials']['token']
+		session[:twitter_secret] = request.env['omniauth.auth']['credentials']['secret']
+
+		redirect_to( check_block_status_path )
+	end
+
+	def check_block_status
+		redirect_to( root_path ) unless session[:twitter_token] && session[:twitter_secret]
+
+		@twitter_client = Twitter::Client.new(
+			:oauth_token => session[:twitter_token],
+			:oauth_token_secret => session[:twitter_secret]
+		)
+
+		@user = @twitter_client.user ( 'strankasds' )
+	end
+
   # GET /zombies/1
   # GET /zombies/1.json
   def show

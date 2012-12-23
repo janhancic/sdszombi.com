@@ -3,6 +3,11 @@ Sdszombi::Application.routes.draw do
 
 	root to: 'zombies#index'
 
+	match "/auth/:provider/callback" => "zombies#twitter_callback"
+	match '/auth/failure', :to => 'zombies#failure'
+
+	match '/preveri', :to => 'zombies#check_block_status', :as => 'check_block_status'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
