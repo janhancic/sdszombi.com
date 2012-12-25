@@ -15,7 +15,7 @@
 @import 'bootstrap';
 
 #row-1, #row-2, #row-3 {
-	font-family: 'Text Me One', sans-serif;
+	font-family: "Creepster", cursive;
 	text-align: center;
 	color: white;
 }
@@ -62,8 +62,8 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f6ac1', endColorstr='#316ec8',GradientType=0 );
 }
 
-#check-container {
-	font-family: 'Text Me One', sans-serif;
+.middle-box {
+	font-family: "Creepster", cursive;
 	letter-spacing: 2px;
 	margin: 0 auto;
 	max-width: 340px;
@@ -73,9 +73,25 @@
 	text-align: center;
 	font-size: 25px;
 	line-height: 40px;
+	border-radius: 10px;
+}
+
+#check-container {
 	background-color: #2c71d6;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#162f56), color-stop(100%,#214a86), color-stop(100%,#214a86));
-	border-radius: 10px;
+
+	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
+	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
+
+	img {
+		margin-top: 20px;
+		max-width: 158px;
+	}
+}
+
+#not-blocked {
+	background-color: #2c71d6;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#146824), color-stop(100%,#0dd633), color-stop(100%,#0dd633));
 
 	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
 	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);

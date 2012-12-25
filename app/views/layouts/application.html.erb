@@ -8,7 +8,7 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<%= stylesheet_link_tag( 'application', :media => 'all' ) %>
 		<%= csrf_meta_tags %>
-		<link href="http://fonts.googleapis.com/css?family=Text+Me+One&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Creepster' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no" />
 	</head>
 	<body>
@@ -21,11 +21,11 @@
 		<div class="row-fluid" id="row-3">
 			<div class="span12">
 				<% if @all_zombies_num === 1 || @all_zombies_num === 2 %>
-				DRŽAVLJANA
+				ZOMBIJA
 				<% elsif @all_zombies_num === 3 || @all_zombies_num === 4 %>
-				DRŽAVLJANE
+				ZOMBIJE
 				<% elsif @all_zombies_num >= 5 %>
-				DRŽAVLJANOV
+				ZOMBIJEV
 				<% end %>
 			</div>
 		</div>
