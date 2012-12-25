@@ -14,6 +14,10 @@
 
 @import 'bootstrap';
 
+body {
+	padding-bottom: 40px;
+}
+
 #row-1, #row-2, #row-3 {
 	font-family: "Creepster", cursive;
 	text-align: center;
@@ -181,5 +185,20 @@
 			margin-top: 30px;
 			width: 400px;
 		}
+	}
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	height: 22px;
+	padding-top: 2px;
+	background-color: #d8d8d8;
+	a {
+		color: black;
+		font-size: 13px;
 	}
 }

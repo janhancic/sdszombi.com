@@ -10,6 +10,8 @@ Sdszombi::Application.routes.draw do
 	match '/nisi-zombi', :to => 'zombies#not_blocked', :as => 'not_blocked'
 	match '/si-zombi/:id', :to => 'zombies#show', :as => 'blocked'
 
+	match '/o-strani', to: 'about#index', as: 'about'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
