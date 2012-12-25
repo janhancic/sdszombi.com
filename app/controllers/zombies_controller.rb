@@ -14,6 +14,9 @@ class ZombiesController < ApplicationController
 		redirect_to( check_block_status_path )
 	end
 
+	def failure
+	end
+
 	def check_block_status
 		unless session[:twitter_token] && session[:twitter_secret]
 			redirect_to( root_path ) 
@@ -26,13 +29,17 @@ class ZombiesController < ApplicationController
 		)
 
 		# check if user is following @strankaSDS
-		is_following = false
-		twitter_client.friendships( 'strankaSDS' )[0].connections.each do |status|
-			if status === 'following'
-				# user is not blocked
-				redirect_to( not_blocked_path )
-				return
+		begin
+			twitter_client.friendships( 'strankaSDS' )[0].connections.each do |status|
+				if status === 'following'
+					# user is not blocked
+					redirect_to( not_blocked_path )
+					return
+				end
 			end
+		rescue
+			redirect_to( not_blocked_path )
+			return
 		end
 
 		# try to follow @strankaSDS
