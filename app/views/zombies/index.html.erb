@@ -5,11 +5,7 @@
 	<a href="/auth/twitter"><%= image_tag('sign-in-with-twitter.png', width: '158px',  height: '28px' ) %></a>
 </div>
 
-<div id="share">
-	<iframe allowtransparency="true" frameborder="0" scrolling="no" src="https://platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fwww.sdszombi.com&amp;via=SDSzombi" style="width:78px; height:20px;"></iframe>
-	<a href="https://twitter.com/SDSzombi" class="twitter-follow-button" data-show-count="true" data-lang="en" data-width="193px">Follow @SDSzombi</a>
-	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.sdszombi.com&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
-</div>
+<%= render( 'layouts/share' ) %>
 
 <div class="row-fluid" id="bottom">
 	<div class="span5" id="bottom-left">
