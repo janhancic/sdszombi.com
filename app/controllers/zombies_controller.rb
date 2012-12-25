@@ -1,6 +1,6 @@
 class ZombiesController < ApplicationController
 	def index
-		@zombies = Zombie.all()
+		@zombies = Zombie.all( order: 'id DESC')
 	end
 
 	def not_blocked
