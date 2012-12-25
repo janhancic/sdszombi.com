@@ -13,13 +13,13 @@
 	</head>
 	<body>
 		<div class="row-fluid" id="row-1">
-			<div class="span12">SDS JE BLOKIRALA</div>
+			<a href="/" class="span12">SDS JE BLOKIRALA</a>
 		</div>
 		<div class="row-fluid" id="row-2">
-			<div class="span12"><%= @all_zombies_num %></div>
+			<a href="/" class="span12"><%= @all_zombies_num %></a>
 		</div>
 		<div class="row-fluid" id="row-3">
-			<div class="span12">
+			<a href="/" class="span12">
 				<% if @all_zombies_num === 1 || @all_zombies_num === 2 %>
 				ZOMBIJA
 				<% elsif @all_zombies_num === 3 || @all_zombies_num === 4 %>
@@ -27,7 +27,7 @@
 				<% elsif @all_zombies_num >= 5 %>
 				ZOMBIJEV
 				<% end %>
-			</div>
+			</a>
 		</div>
 		<%= yield %>
 
