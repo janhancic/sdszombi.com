@@ -24,7 +24,7 @@ class ZombiesController < ApplicationController
 
 		# check if user is following @strankaSDS
 		is_following = false
-		twitter_client.friendships( 'KPizda' )[0].connections.each do |status|
+		twitter_client.friendships( 'strankaSDS' )[0].connections.each do |status|
 			if status === 'following'
 				# user is not blocked
 				redirect_to( not_blocked_path )
@@ -32,11 +32,11 @@ class ZombiesController < ApplicationController
 		end
 
 		# try to follow @strankaSDS
-		follow_check = twitter_client.follow( 'KPizda' )
+		follow_check = twitter_client.follow( 'strankaSDS' )
 
 		if follow_check.length > 0
 			# follow was successful, user is not blocked
-			twitter_client.unfollow( 'KPizda' )
+			twitter_client.unfollow( 'strankaSDS' )
 			redirect_to( not_blocked_path )
 		else
 			# user is blocked
