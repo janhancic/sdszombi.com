@@ -42,8 +42,7 @@
 	font-weight: bold;
 	background-color: #95080c;
 
-	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
-	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.0), inset 0px 5px 10px -2px rgba(178, 7, 11, 0.7), 0px 0px 0px 0px rgba(0, 0, 0, 0), 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
 
 	text-shadow: 2px 2px 3px #000000;
 	filter: dropshadow(color=#000000, offx=2, offy=2);
@@ -75,6 +74,7 @@
 	font-size: 25px;
 	line-height: 40px;
 	background-color: #2c71d6;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#162f56), color-stop(100%,#214a86), color-stop(100%,#214a86));
 	border-radius: 10px;
 
 	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
@@ -102,7 +102,13 @@
 		width: 300px;
 	}
 	.zombie {
-
+		line-height: 17px;
+		margin-bottom: 5px;
+		padding-bottom: 5px;
+		border-bottom: 1px dotted #e5e5e5;
+		&:last-child {
+			border-bottom: none;
+		}
 	}
 }
 
