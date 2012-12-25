@@ -43,7 +43,7 @@ class ZombiesController < ApplicationController
 			zombie = Zombie.find_by_name( session[:twitter_name] )
 			if !zombie
 				zombie = Zombie.create( :name => session[:twitter_name], :message => '', :show => true )
-				redirect_to blocked_path( zombie, :created => true )
+				redirect_to blocked_path( zombie )
 			else
 				redirect_to blocked_path( zombie )
 			end
@@ -57,70 +57,21 @@ class ZombiesController < ApplicationController
 			redirect_to( root_path )
 		end
 
-		@show_form = false
-
-		if params[:created] && session[:twitter_name] && session[:twitter_name] == @zombie.name
-			@show_form = true
-		end
+		@show_form = ( session[:twitter_name] && session[:twitter_name] == @zombie.name )
 	end
 
-  # GET /zombies/new
-  # GET /zombies/new.json
-  def new
-    @zombie = Zombie.new
+	def update
+		@zombie = Zombie.find( params[:id] )
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @zombie }
-    end
-  end
+		new_message = params[:zombie][:message]
+		if new_message.length > 140
+			new_message = new_message[0..139]
+		end
 
-  # GET /zombies/1/edit
-  def edit
-    @zombie = Zombie.find(params[:id])
-  end
-
-  # POST /zombies
-  # POST /zombies.json
-  def create
-    @zombie = Zombie.new(params[:zombie])
-
-    respond_to do |format|
-      if @zombie.save
-        format.html { redirect_to @zombie, notice: 'Zombie was successfully created.' }
-        format.json { render json: @zombie, status: :created, location: @zombie }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @zombie.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /zombies/1
-  # PUT /zombies/1.json
-  def update
-    @zombie = Zombie.find(params[:id])
-
-    respond_to do |format|
-      if @zombie.update_attributes(params[:zombie])
-        format.html { redirect_to @zombie, notice: 'Zombie was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @zombie.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /zombies/1
-  # DELETE /zombies/1.json
-  def destroy
-    @zombie = Zombie.find(params[:id])
-    @zombie.destroy
-
-    respond_to do |format|
-      format.html { redirect_to zombies_url }
-      format.json { head :no_content }
-    end
-  end
+		if @zombie.update_attributes( message: new_message )
+			redirect_to( blocked_path( @zombie ) )
+		else
+			redirect_to( root_path )
+		end
+	end
 end

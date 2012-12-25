@@ -1,23 +1,17 @@
-<% if @show_form === true %>
-	<h1>@strankaSDS te je blokirala!</h1>
-	<p class="lead">
-		Povej nam zakaj mislis da so te blokirali:
-	</p>
-	<%= form_for(@zombie) do |f| %>
-		<%= f.text_field :message %>
-
-		<%= f.submit %>
+<% provide( :title, 'Si zombi' ) %>
+<div id="blocked">
+	<a href="https://twitter.com/<%= @zombie.name %>">@<%= @zombie.name %></a> 
+	<%= @zombie.message unless @zombie.message.empty? || @show_form === true %>
+	<% if @show_form === true %>
+		<%= form_for(@zombie) do |f| %>
+			<%= f.text_area( :message, placeholder: 'Povej zakaj so te blokirali ...', rows: 3 ) %>
+			<div id="form-bottom">
+				<%= f.submit( 'shrani', id: 'commit', class: 'btn btn-primary' ) %>
+				<span id="char-counter"><%= 140 - @zombie.message.length %></span>
+			</div>
+		<% end %>
 	<% end %>
-<% end %>
+	<%= image_tag( 'zombi.png', alt: 'SDS zombi' ) %>
+</div>
 
-
-<hr />
-<h1>@StrankaSDS je blokirala @<%= @zombie.name %></h1>
-
-<% unless @zombie.message.empty? %>
-	@<%= @zombie.name %> meni da je razlog za blokiranje:<br /><br />
-	<%= @zombie.message %>
-<% end %>
-
-<p>BADGE</p>
-<p>share buttons</p>
+<%= render( 'layouts/share', share_url: blocked_path( @zombie, only_path: false ) ) %>

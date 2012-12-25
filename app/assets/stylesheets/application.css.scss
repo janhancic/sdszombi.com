@@ -78,6 +78,9 @@
 	font-size: 25px;
 	line-height: 40px;
 	border-radius: 10px;
+
+	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
+	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
 }
 
 #check-container {
@@ -96,13 +99,37 @@
 #not-blocked {
 	background-color: #2c71d6;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#146824), color-stop(100%,#0dd633), color-stop(100%,#0dd633));
+}
 
-	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
-	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.7);
-
+#blocked {
+	margin: 0 auto;
+	max-width: 500px;
+	margin-top: 30px;
+	text-align: center;
+	font-size: 33px;
+	line-height: 33px;
 	img {
-		margin-top: 20px;
-		max-width: 158px;
+		display: block;
+		margin-top: 30px;
+	}
+	form {
+		width: 220px;
+		margin: 0 auto;
+		margin-top: 10px;
+		#form-bottom {
+			overflow: hidden;
+			input {
+				float: right;
+			}
+			span {
+				float: right;
+				margin-right: 5px;
+				font-size: 14px;
+				&.too-many {
+					color: red;
+				}
+			}
+		}
 	}
 }
 
@@ -126,6 +153,12 @@
 		margin-bottom: 5px;
 		padding-bottom: 5px;
 		border-bottom: 1px dotted #e5e5e5;
+		-ms-word-break: break-all;
+		word-break: break-all;
+		word-break: break-word;
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		hyphens: auto;
 		&:last-child {
 			border-bottom: none;
 		}
