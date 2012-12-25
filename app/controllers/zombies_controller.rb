@@ -15,7 +15,10 @@ class ZombiesController < ApplicationController
 	end
 
 	def check_block_status
-		redirect_to( root_path ) unless session[:twitter_token] && session[:twitter_secret]
+		unless session[:twitter_token] && session[:twitter_secret]
+			redirect_to( root_path ) 
+			return
+		end
 
 		twitter_client = Twitter::Client.new(
 			:oauth_token => session[:twitter_token],
@@ -28,6 +31,7 @@ class ZombiesController < ApplicationController
 			if status === 'following'
 				# user is not blocked
 				redirect_to( not_blocked_path )
+				return
 			end
 		end
 
@@ -38,14 +42,17 @@ class ZombiesController < ApplicationController
 			# follow was successful, user is not blocked
 			twitter_client.unfollow( 'strankaSDS' )
 			redirect_to( not_blocked_path )
+			return
 		else
 			# user is blocked
 			zombie = Zombie.find_by_name( session[:twitter_name] )
 			if !zombie
 				zombie = Zombie.create( :name => session[:twitter_name], :message => '', :show => true )
 				redirect_to blocked_path( zombie )
+				return
 			else
 				redirect_to blocked_path( zombie )
+				return
 			end
 		end
 	end
@@ -55,6 +62,7 @@ class ZombiesController < ApplicationController
 			@zombie = Zombie.find( params[:id] )
 		rescue
 			redirect_to( root_path )
+			return
 		end
 
 		@show_form = ( session[:twitter_name] && session[:twitter_name] == @zombie.name )
@@ -70,8 +78,10 @@ class ZombiesController < ApplicationController
 
 		if @zombie.update_attributes( message: new_message )
 			redirect_to( blocked_path( @zombie ) )
+			return
 		else
 			redirect_to( root_path )
+			return
 		end
 	end
 end
