@@ -1,4 +1,11 @@
-<% provide( :title, 'Si zombi' ) %>
+<%
+if @show_form === true
+	provide( :title, 'Si zombi' )
+else
+	provide( :title, '@' + @zombie.name + ' je zombi' )
+end
+%>
+
 <div id="blocked">
 	<a href="https://twitter.com/<%= @zombie.name %>">@<%= @zombie.name %></a> 
 	<%= @zombie.message unless @zombie.message.empty? || @show_form === true %>
