@@ -12,7 +12,7 @@
 		<h3>Blokirani:</h3>
 		<% @zombies.each do |zombie| %>
 		<div class="zombie">
-			<a href="https://twitter.com/<%= zombie.name %>">@<%= zombie.name %></a> <%= zombie.message %>
+			<a href="https://twitter.com/<%= zombie.name %>">@<%= zombie.name %></a> <%= zombie.message %> <a href="<%= blocked_path( zombie ) %>" class="icon-arrow-right"></a>
 		</div>
 		<% end %>
 	</div>
