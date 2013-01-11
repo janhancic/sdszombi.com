@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '2.2.1.1'
 gem 'omniauth-twitter'
 gem 'twitter'
